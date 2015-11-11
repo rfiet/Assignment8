@@ -88,6 +88,9 @@
         
                 $("body").on("click", function(event) {
                 
+                     var prevOpenCloseIcon =  $("#" + selectEl + " h3 span").text();
+                     var prevSelectedEl = selectEl;
+                    
                      $("#" + selectEl + " h3 span").text("+")
                      $("#" + selectEl + " p").slideUp(300);
                      $("." + selectEl).css("background-color", "#298c79").css("border-radius","10px");
@@ -103,9 +106,16 @@
                         default:  	        selectEl = "pima";                    
 
                     }
-                    $("#" + selectEl + " p").slideDown(300);
-                    $("." + selectEl).css("background-color", "#9daf3b").css("border-bottom-right-radius", "0").css("border-bottom-left-radius", "0");
-                    $("." + selectEl + " span").text("-");
+                    
+                    // solve problem when the container is already open and clicked again
+                    if(prevSelectedEl == selectEl && prevOpenCloseIcon == "-"){
+                        ;
+                    }
+                    else{
+                        $("#" + selectEl + " p").slideDown(300);
+                        $("." + selectEl).css("background-color", "#9daf3b").css("border-bottom-right-radius", "0").css("border-bottom-left-radius", "0");
+                        $("." + selectEl + " span").text("-");
+                    }
                     
             });
   
