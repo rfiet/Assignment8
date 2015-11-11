@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Assignment 8 Part 2 Tabs</title>
+<style>
+    body, section{
+         text-align: center;  
+        font-family: arial, sans-serif;
+        font-size: 1.1em;
+        
+    }
+    #tabs div{
+         
+        text-align: center;
+        display: inline-block;
+        width: 250px;
+        font-size: 1.2em;
+        padding-top: 5px;
+        border: 1px solid purple;
+        height: 34px;
+        color:azure;
+        background-color: #c0cde5;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+    #tabs{
+       margin-top: 13px;
+        margin-bottom: 0;
+       background-color:cornflowerblue;
+       height: 40px;
+        border-radius: 4px;
+    }
+    #outcomesContent, #modulesContent, #bioContent{
+        width: 90%;
+        color: #2157b9;
+        background-color: #d2e0fb;
+        margin-top: -23px;
+        margin-right: 0;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        padding: 0 5% 10px 5%;
+    }
+    #modulesContent, #bioContent{
+        display: none;
+    }
+    h3{
+       text-align: left;
+       padding-top: 25px;
+        margin-bottom: 0;
+    }
+    section p{
+        margin-top: 0;
+        text-align: left;
+    }
+    
+    #tabs .outcomes{
+        color: #2157b9;
+        border-bottom: #d2e0fb;
+        background-color: #d2e0fb;
+        border-bottom: #d2e0fb;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radiu: 0;
+    }
+</style>
+</head>
+
+<body>
+
+<section id="tabs">
+    <div class="outcomes">Outcomes</div>
+    <div class="mods">Modules</div>
+    <div class="bio">Bio</div>
+</section>
+<section id="outcomesContent">
+    <h3>Outcomes</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+     nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+     esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
+     in culpa qui officia deserunt mollit anim id est laborum.
+     </p>
+    
+</section>
+<section id="modulesContent">
+   <h3>Modules</h3>
+    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
+    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt 
+    explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur 
+    magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia 
+    dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et 
+    dolore magnam aliquam quaerat voluptatem.
+    </p>
+    
+</section>
+<section id="bioContent">
+    <h3>Biography</h3>
+    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti 
+    atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique 
+    sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+    </p>
+</section>
+<script src="scripts/jquery-1.11.3.min.js"></script>
+<script>
+    
+    $(document).ready(function() {
+        
+                var myId = "#outcomesContent";
+                var myClass = ".outcomes";
+                $("#tabs").on("click", function(event) {
+                     
+                //  $("#bioContent, #outcomesContent, #modulesContent").css("display", "none");
+                  $(myId).css("display", "none");
+                  $(myClass).css("color", "azure").css("border", "1px solid purple").css("background-color", "#c0cde5");
+                  $(myClass).css("border-bottom-right-radius", "5px").css("border-bottom-left-radius", "5px");
+                  
+                switch(event.target.className){
+
+                     case "outcomes":  myId = "#outcomesContent";
+                                       myClass = ".outcomes";                                       
+                                       break;
+                    case "mods":       myId = "#modulesContent";
+                                       myClass = ".mods";  
+                                       break;
+                    case "bio":        myId = "#bioContent";
+                                       myClass = ".bio";
+                                       break;
+                    default:           myId = "#modulesContent";
+                                       myClass = ".mods";            
+                        
+                }
+ 	            $(myId).css("display", "block");
+                $(myClass).css("color", "#2157b9").css("background-color", "#d2e0fb").css("border-bottom","#d2e0fb"); 
+                $(myClass).css("border-bottom-right-radius", "0").css("border-bottom-left-radius", "0");   
+            });
+  
+    });
+    
+</script>
+</body>
+    
+</html>
+    
+   

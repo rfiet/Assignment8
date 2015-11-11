@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Assignment 8 Part 2 Accordion</title>
+<style>
+    body{
+         text-align: center;  
+        font-family: arial, sans-serif;
+        font-size: 1.1em;
+        
+    }
+
+    #pima p, #assesments p, #apply p{
+        display: none;
+        color: darkslategrey;
+        padding: 20px;
+    }
+    section{
+        color: #fff; 
+    }
+    h3{
+       text-align: left;
+       padding-top: 10px;
+       margin-bottom: 0;
+        height: 30px;
+        padding-left: 20px;
+       background-color: #298c79;
+       cursor: pointer;
+        border-radius: 10px;
+        margin-top: 5px;
+    }
+    h3.selected{
+       background-color: #9cad39;
+    }
+    section p{
+        margin-top: 0;
+        text-align: left;
+    }
+    
+    main{
+      width: 75%;
+      text-align: center;  
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+</head>
+
+<body>
+
+<main>
+    <section id="pima">
+        <h3 class="pima"><span>+</span> Why Pima?</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+         nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+         esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
+         in culpa qui officia deserunt mollit anim id est laborum.
+         </p>
+
+    </section>
+    <section id="apply">
+       <h3 class="apply"><span>+</span> Apply</h3>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
+        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt 
+        explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur 
+        magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia 
+        dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et 
+        dolore magnam aliquam quaerat voluptatem.
+        </p>
+
+    </section>
+    <section id="assesments">
+        <h3 class="assesments"><span>+</span> Take Assesments</h3>
+        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti 
+        atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique 
+        sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+        </p>
+    </section>
+</main>
+<script src="scripts/jquery-1.11.3.min.js"></script>
+<script>
+    
+    $(document).ready(function() {
+        
+                var selectEl  = "pima";
+        
+                $("body").on("click", function(event) {
+                
+                     $("#" + selectEl + " h3 span").text("+")
+                     $("#" + selectEl + " p").slideUp(300);
+                     $("." + selectEl).css("background-color", "#298c79").css("border-radius","10px");
+
+                    switch(event.target.className){
+
+                        case "pima":        selectEl = "pima";
+                                            break;
+                        case "apply":       selectEl = "apply";
+                                            break;
+                        case "assesments":  selectEl = "assesments";
+                                            break;
+                        default:  	        selectEl = "pima";                    
+
+                    }
+                    $("#" + selectEl + " p").slideDown(300);
+                    $("." + selectEl).css("background-color", "#9daf3b").css("border-bottom-right-radius", "0").css("border-bottom-left-radius", "0");
+                    $("." + selectEl + " span").text("-");
+                    
+            });
+  
+    });
+    
+</script>
+</body>
+    
+</html>
+    
+   

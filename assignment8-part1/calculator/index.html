@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Lab 2 - Calculator III</title>
+</head>
+
+<body>
+	<input type="text" readonly id="result">
+    <br>
+    <div id="container">
+        <input type="button" id="seven" value="7">
+        <input type="button" id="eight" value="8">
+        <input type="button" id="nine" value="9">
+        <input type="button" id="divide" value="/">
+        <br>
+        <input type="button" id="four" value="4">
+        <input type="button" id="five" value="5">
+        <input type="button" id="six" value="6">
+        <input type="button" id="multiply" value="*">
+        <br>
+        <input type="button" id="one" value="1">
+        <input type="button" id="two" value="2">
+        <input type="button" id="three" value="3">
+        <input type="button" id="subtract" value="-">
+        <br>
+        <input type="button" id="zero" value="0">
+        <input type="button" id="period" value=".">
+        <input type="button" id="add" value="+">
+    </div>
+    <input type="button" id="equal" value="="><br>
+    <button>Clear/Reset</button>
+    
+     <script src="../scripts/jquery-1.11.3.min.js"></script>
+     <script>
+        $(document).ready(function() {
+            
+            $("input[type=button]").css("background-color","#6093e8").css("color","#eb8309").css("width","45px").css("height","45px");
+            $("input[type=button]").css("font-size","1.3em").css("border","1px solid #eb8309").css("border-radius", "5px");
+            $("input[type=button]").css("margin","2px");
+         //   $("#equal").css("margin-left","120px");
+            $("#container").css("background-color","#f7ead8").css("width","230px").css("height","220px").css("text-align","center");
+            $("#container").css("border","1px solid #b96d00").css("border-radius", "5px").css("padding", "10px 4px 5px 5px");
+            $("#container").css("margin","10px 0 0 20px");
+ 
+            $("#result").css("background-color","#f7ead8").css("color","#6093e8").css("width","100px").css("height","20px");
+            $("#result").css("margin-left","87px").css("margin-top","10px").css("padding","3px").css("font-size","1.1em");
+            $("#result").css("border","1px solid navy").css("border-radius","4px").css("text-align","right");
+            
+            var element = $('#equal').detach();
+            $('#container').append(element);
+            
+            $("button").css("width","110px").css("height","28px").css("margin-top","10px");
+            $("button").css("margin","5px 0 0 91px").css("border","2px solid navy").css("border-radius","4px");
+            $("button").css("color","#6093e8").css("background-color","#f7ead8").css("font-size","1.1em");
+            
+            
+            var enter = function(val){
+      
+                var newVal = $("#result").val() + val; 
+                $("#result").val(newVal);
+                 console.log(" val = " + val + ", result = " +   document.getElementById("result").value + ", jquery way = " +  $("#result").val());
+            }
+
+            function calculate(){ 
+  
+                 $("#result").val(eval($("#result").val()) )
+            }
+            
+            $("body").click(function(event) {
+                
+                console.log(" node = " + event.target.nodeName + ", id = " + event.target.id + ", value = " + event.target.value);
+               if(event.target.id == "equal"){
+                   calculate();
+               }
+               else if(event.target.nodeName == "BUTTON") {
+                   $("#result").val("");
+               }
+               else{ 
+                   enter(event.target.value); 
+               }
+            });
+
+        });
+    </script> 
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Assignment 8 Part 2</title>
+<style>
+    body, section{
+         text-align: center;   
+    }
+    #pager div{
+         
+        text-align: center;
+         display: inline-block;
+        width: 50px;
+        font-size: 1.2em;
+        color: cadetblue;
+        cursor: pointer;
+    }
+    #pager{
+       margin-top: 13px;
+    }
+    
+</style>
+</head>
+
+<body>
+
+<section id="slide">
+    <img src="images/24_INCH_SCHWINN_1024.jpg" alt="slideshow" width="1000">
+</section>
+<section id="pager">
+    <div class="one">1</div>
+    <div class="two">2</div>
+    <div class="three">3</div>
+    <div class="four">4</div>
+    <div class="five">5</div>
+</section>
+
+<script src="scripts/jquery-1.11.3.min.js"></script>
+<script>
+    
+    $(document).ready(function() {
+        
+      //      $("#pager").click(function(event) {
+              $("#pager").on("click", function(event) {
+                
+                console.log(" node = " + event.target.nodeName + ", id = " + event.target.id + ", value = " + event.target.className);
+     
+                switch(event.target.className){
+        /*                
+                    case "one":  $("img").attr("src", "images/24_INCH_SCHWINN_1024.jpg");
+                           break;
+                    case "two": $("img").attr("src", "images/old_bike_1024.jpg");
+                           break;
+                    case "three": $("img").attr("src", "images/vintage_1024.jpg");
+                           break;
+                    case "four": $("img").attr("src", "images/vintage_1024.jpg");
+                           break;
+                    case "five": $("img").attr("src", "images/schwinn_1024.jpg");
+                           break;
+                    default:  $("img").attr("src", "images/24_INCH_SCHWINN_1024.jpg");
+                           break;
+ */
+                     case "one":  $("#slide").animate({opacity:'0.1'},1500,"swing",function() {	$("img").attr("src", "images/24_INCH_SCHWINN_1024.jpg") });
+                           break;
+                    case "two": $("#slide").animate({opacity:'0.1'},1500,"swing",function() {	$("img").attr("src", "images/old_bike_1024.jpg") });
+                           break;
+                    case "three": $("#slide").animate({opacity:'0.1'},1500,"swing",function() {$("img").attr("src", "images/vintage_1024.jpg") });
+                           break;
+                    case "four": $("#slide").animate({opacity:'0.1'},1500,"swing",function() {$("img").attr("src", "images/vintage_1024.jpg") });
+                           break;
+                    case "five": $("#slide").animate({opacity:'0.1'},1500,"swing",function() {$("img").attr("src", "images/schwinn_1024.jpg") });
+                           break;
+                    default:  $("#slide").animate({opacity:'0.1'},1500,"swing",function() {	$("img").attr("src", "images/24_INCH_SCHWINN_1024.jpg") });
+                           break;
+                     
+                    
+                  //      $("div").animate({width: "500px"}, 5000, "swing", function() {	alert("The div was animated");});
+                        
+                }
+                  $("#slide").animate({opacity:'1.0'},1500,"swing")
+                $('#pager').children('div').each(function () {
+                   // alert(this.value); // "this" is the current element in the loop
+                    $(this).css("border","none").css("font-weight","normal");
+                });               
+ 
+               // var myClass= "." + event.target.className;
+                $("." + event.target.className).css("border","1px solid navy").css("font-weight","bold").css("color","#002f7c");
+
+            });
+    });
+    
+</script>
+</body>
+    
+</html>
+    
+   
